@@ -1,6 +1,7 @@
 # Libraries We shall be Using
 library(caTools) # Splitting the dataset into train and test set
-library(ggplot2) # Visualizing Results
+#library(ggplot2) # Visualizing Results
+library(scales) # continous scale on axis
 library(readxl) # Reading execl data
 library(class) # Fitting KNN Algorithm
 library(e1071) # Fitting Support vector machine, Naive Bayes
@@ -15,7 +16,7 @@ library(cluster) # Visualizing kmeans clusters and HC
 # Loading our dataset 
 dataset = read.csv('data/crafted_umeme-dataset.csv')
 # Seeing what our data is like
-View(dataset)
+head(dataset,5)
 # Subsetting only the Variables(columns) for our model
 slr_data <- dataset[ ,1:2]
 # View(slr_data) # if interested to see what it looks like
@@ -39,6 +40,7 @@ ggplot() +
              colour = 'red') +
   geom_line(aes(x = training_set$YearsExperience, y = predict(regressionModel, newdata = training_set)),
             colour = 'blue') +
+  scale_y_continuous(labels = comma)+
   ggtitle(paste("Salary Vs Years of Experience")) +
   labs(x = "Years of Experience",y = "Salary",
        caption = "Source of Data: Crafted")
@@ -49,6 +51,7 @@ ggplot() +
              colour = 'red') +
   geom_line(aes(x = training_set$YearsExperience, y = predict(regressionModel, newdata = training_set)),
             colour = 'blue') +
+  scale_y_continuous(labels = comma)+
   ggtitle(paste("Salary Vs Years of Experience")) +
   labs(x = "Years of Experience",y = "Salary",
        caption = "Source of Data: Crafted")
@@ -57,7 +60,7 @@ ggplot() +
 
 # Loading the neccessary data
 mlr_data <- dataset[ ,3:6]
-View(mlr_data)
+head(mlr_data)
 
 # Factoring/encoding categorical data using integer encoding
 mlr_data$Branch = factor(mlr_data$Branch,
@@ -81,11 +84,11 @@ b_elimination = lm(formula = ProfitMade ~ DamagesPaid + AdministrationCost + Bra
                    data = mlr_data)
 summary(b_elimination)
 
-b_elimination = lm(formula = ProfitMade ~ DamagesPaid + AdministrationCost + factor(Branch, exclude = 2),
+b_elimination = lm(formula = ProfitMade ~ DamagesPaid + AdministrationCost + factor(Branch, exclude = 3),
                    data = mlr_data)
 summary(b_elimination)
 
-b_elimination = lm(formula = ProfitMade ~ DamagesPaid  + factor(Branch, exclude = 2),
+b_elimination = lm(formula = ProfitMade ~ DamagesPaid  + factor(Branch, exclude = 3),
                    data = mlr_data)
 summary(b_elimination)
 
@@ -106,6 +109,7 @@ ggplot() +
              colour = 'red') +
   geom_line(aes(x = pr$YearsExperience, y = predict(regressionModel_pr, newdata = pr)),
             colour = 'blue') +
+  scale_y_continuous(labels = comma)+
   ggtitle(paste("Polynomial Regression")) +
   labs(x = "Years of Experience",y = "Salary",
        caption = "Source of Data: Crafted")
@@ -122,6 +126,7 @@ ggplot() +
                                                              YearsExperience3 = x_grid^3,
                                                              YearsExperience4 = x_grid^4))),
             colour = 'blue') +
+  scale_y_continuous(labels = comma)+
   ggtitle('Polynomial Regression') +
   labs(x = "Years of Experience",y = "Salary",
        caption = "Source of Data: Crafted")
