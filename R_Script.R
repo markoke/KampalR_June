@@ -1,6 +1,6 @@
 # Libraries We shall be Using
 library(caTools) # Splitting the dataset into train and test set
-#library(ggplot2) # Visualizing Results
+library(ggplot2) # Visualizing Results
 library(scales) # continous scale on axis
 library(readxl) # Reading execl data
 library(class) # Fitting KNN Algorithm
@@ -163,7 +163,7 @@ t_prediction = predict(lr_classifier,
 round_prediction = ifelse(t_prediction > 0.5, 1, 0)
 
 # Confusion Matrix
-cm = table(test_set[, 3], round_prediction > 0.5)
+cm = table(test_set$Paid, round_prediction > 0.5)
 cm
 
 # K-Nearest Neighbors (K-NN)
@@ -174,12 +174,12 @@ cm
 # Fitting K-NN and Predicting results
 knn_classifier = knn(train = training_set[, -3],
                      test = test_set[, -3],
-                     cl = training_set[, 3],
+                     cl = training_set$Paid,
                      k = 5,
                      prob = TRUE)
 
 # Confusion Matrix
-cm = table(test_set[, 3], knn_classifier)
+cm = table(test_set$Paid, knn_classifier)
 cm
 
 # Support Vector Machine Classification
@@ -197,7 +197,7 @@ svm_classifier = svm(formula = Paid ~ .,
 predicting = predict(svm_classifier, newdata = test_set[-3])
 
 # Confusion Matrix
-cm = table(test_set[, 3], predicting)
+cm = table(test_set$Paid, predicting)
 cm
 
 # Naive Bayes
@@ -211,7 +211,7 @@ naive_classifier = naiveBayes(x = training_set[-3],
 predicting = predict(naive_classifier, newdata = test_set[-3])
 
 # Confusion Matrix
-cm = table(test_set[, 3], predicting)
+cm = table(test_set$Paid, predicting)
 cm
 
 # Decision Tree Classification
@@ -225,7 +225,7 @@ dtc_classifier = rpart(formula = Paid ~ .,
 predicting = predict(dtc_classifier, newdata = test_set[-3], type = 'class')
 
 # Confusion Matrix
-cm = table(test_set[, 3], predicting)
+cm = table(test_set$Paid, predicting)
 cm
 
 # Random Forest Classification
@@ -240,7 +240,7 @@ rf_classifier = randomForest(x = training_set[-3],
 predicting = predict(rf_classifier, newdata = test_set[-3])
 
 # Confusion Matrix
-cm = table(test_set[, 3], predicting)
+cm = table(test_set$Paid, predicting)
 cm
 
 # Adding changing number of trees
@@ -253,7 +253,7 @@ rf_classifier = randomForest(x = training_set[-3],
 predicting = predict(rf_classifier, newdata = test_set[-3])
 
 # Confusion Matrix
-cm = table(test_set[, 3], predicting)
+cm = table(test_set$Paid, predicting)
 cm
 
 # Change number of trees until optimal
