@@ -92,7 +92,6 @@ b_elimination = lm(formula = ProfitMade ~ DamagesPaid  + factor(Branch, exclude 
                    data = mlr_data)
 summary(b_elimination)
 
-# NON LINEAR REGRESSION
 # Polynomial Regression
 pr <- slr_data
 
