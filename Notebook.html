@@ -11827,7 +11827,7 @@ The following object is masked from ‘package:randomForest’:
 <span class="c1"># LINEAR REGRESSION</span>
 <span class="c1"># simple linear regression </span>
 <span class="c1"># Loading our dataset </span>
-dataset <span class="o">=</span> read.csv<span class="p">(</span><span class="s">&#39;data/crafted_umeme-dataset.csv&#39;</span><span class="p">)</span>
+dataset <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&#39;data/crafted_umeme-dataset.csv&#39;</span><span class="p">)</span>
 <span class="c1"># Seeing what our data is like</span>
 <span class="kp">head</span><span class="p">(</span>dataset<span class="p">,</span><span class="m">5</span><span class="p">)</span>
 <span class="c1"># Subsetting only the Variables(columns) for our model</span>
@@ -11889,9 +11889,9 @@ slr_data <span class="o">&lt;-</span> dataset<span class="p">[</span> <span clas
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Splitting the dataset into Training set and Test set</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">772018</span><span class="p">)</span>
-dividing <span class="o">=</span> sample.split<span class="p">(</span>slr_data<span class="o">$</span>SalaryAyear<span class="p">,</span> SplitRatio <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
-training_set <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>slr_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span>
-test_set <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>slr_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
+dividing <span class="o">&lt;-</span> sample.split<span class="p">(</span>slr_data<span class="o">$</span>SalaryAyear<span class="p">,</span> SplitRatio <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+training_set <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>slr_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span>
+test_set <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>slr_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13406,7 +13406,7 @@ mlr_data <span class="o">&lt;-</span> dataset<span class="p">[</span> <span clas
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Factoring/encoding categorical data using integer encoding</span>
-mlr_data<span class="o">$</span>Branch <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span>mlr_data<span class="o">$</span>Branch<span class="p">,</span>
+mlr_data<span class="o">$</span>Branch <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>mlr_data<span class="o">$</span>Branch<span class="p">,</span>
                          levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;Kampala&#39;</span><span class="p">,</span> <span class="s">&#39;Mbarara&#39;</span><span class="p">,</span> <span class="s">&#39;Soroti&#39;</span><span class="p">),</span>
                          labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span>
 </pre></div>
@@ -13422,9 +13422,9 @@ mlr_data<span class="o">$</span>Branch <span class="o">=</span> <span class="kp"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="kp">set.seed</span><span class="p">(</span><span class="m">772018</span><span class="p">)</span>
-dividing_mlr <span class="o">=</span> sample.split<span class="p">(</span>mlr_data<span class="o">$</span>ProfitMade<span class="p">,</span> SplitRatio <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
-training_set <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>mlr_data<span class="p">,</span> dividing_mlr <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span>
-test_set <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>mlr_data<span class="p">,</span> dividing_mlr <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
+dividing_mlr <span class="o">&lt;-</span> sample.split<span class="p">(</span>mlr_data<span class="o">$</span>ProfitMade<span class="p">,</span> SplitRatio <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+training_set <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>mlr_data<span class="p">,</span> dividing_mlr <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span>
+test_set <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>mlr_data<span class="p">,</span> dividing_mlr <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13456,7 +13456,7 @@ predicting <span class="o">=</span> predict<span class="p">(</span>regressionMod
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Backward Elimination for an optimal model</span>
-b_elimination <span class="o">=</span> lm<span class="p">(</span>formula <span class="o">=</span> ProfitMade <span class="o">~</span> DamagesPaid <span class="o">+</span> AdministrationCost <span class="o">+</span> Branch<span class="p">,</span>
+b_elimination <span class="o">&lt;-</span> lm<span class="p">(</span>formula <span class="o">=</span> ProfitMade <span class="o">~</span> DamagesPaid <span class="o">+</span> AdministrationCost <span class="o">+</span> Branch<span class="p">,</span>
                    data <span class="o">=</span> mlr_data<span class="p">)</span>
 <span class="kp">summary</span><span class="p">(</span>b_elimination<span class="p">)</span>
 </pre></div>
@@ -13513,7 +13513,7 @@ F-statistic: 90.55 on 4 and 25 DF,  p-value: 1.693e-14
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>b_elimination <span class="o">=</span> lm<span class="p">(</span>formula <span class="o">=</span> ProfitMade <span class="o">~</span> DamagesPaid <span class="o">+</span> AdministrationCost <span class="o">+</span> <span class="kp">factor</span><span class="p">(</span>Branch<span class="p">,</span> exclude <span class="o">=</span> <span class="m">3</span><span class="p">),</span>
+<div class=" highlight hl-r"><pre><span></span>b_elimination <span class="o">&lt;-</span> lm<span class="p">(</span>formula <span class="o">=</span> ProfitMade <span class="o">~</span> DamagesPaid <span class="o">+</span> AdministrationCost <span class="o">+</span> <span class="kp">factor</span><span class="p">(</span>Branch<span class="p">,</span> exclude <span class="o">=</span> <span class="m">3</span><span class="p">),</span>
                    data <span class="o">=</span> mlr_data<span class="p">)</span>
 <span class="kp">summary</span><span class="p">(</span>b_elimination<span class="p">)</span>
 </pre></div>
@@ -13570,7 +13570,7 @@ F-statistic: 94.74 on 3 and 15 DF,  p-value: 5.644e-10
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>b_elimination <span class="o">=</span> lm<span class="p">(</span>formula <span class="o">=</span> ProfitMade <span class="o">~</span> DamagesPaid  <span class="o">+</span> <span class="kp">factor</span><span class="p">(</span>Branch<span class="p">,</span> exclude <span class="o">=</span> <span class="m">3</span><span class="p">),</span>
+<div class=" highlight hl-r"><pre><span></span>b_elimination <span class="o">&lt;-</span> lm<span class="p">(</span>formula <span class="o">=</span> ProfitMade <span class="o">~</span> DamagesPaid  <span class="o">+</span> <span class="kp">factor</span><span class="p">(</span>Branch<span class="p">,</span> exclude <span class="o">=</span> <span class="m">3</span><span class="p">),</span>
                    data <span class="o">=</span> mlr_data<span class="p">)</span>
 <span class="kp">summary</span><span class="p">(</span>b_elimination<span class="p">)</span>
 </pre></div>
@@ -15203,7 +15203,7 @@ KowRGOCPAAAAAElFTkSuQmCC"
 airT_data <span class="o">&lt;-</span> read_excel<span class="p">(</span><span class="s">&#39;data/airtime_borrowing.xls&#39;</span><span class="p">)</span>
 
 <span class="c1"># Encoding paid as factor</span>
-airT_data<span class="o">$</span>Paid <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span>airT_data<span class="o">$</span>Paid<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+airT_data<span class="o">$</span>Paid <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>airT_data<span class="o">$</span>Paid<span class="p">,</span> levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -15218,9 +15218,9 @@ airT_data<span class="o">$</span>Paid <span class="o">=</span> <span class="kp">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Splitting the dataset into the Training set and Test set</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">772018</span><span class="p">)</span>
-dividing <span class="o">=</span> sample.split<span class="p">(</span>airT_data<span class="o">$</span>Paid<span class="p">,</span> SplitRatio <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
-training_set <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>airT_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span>
-test_set <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>airT_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
+dividing <span class="o">&lt;-</span> sample.split<span class="p">(</span>airT_data<span class="o">$</span>Paid<span class="p">,</span> SplitRatio <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+training_set <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>airT_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">TRUE</span><span class="p">)</span>
+test_set <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>airT_data<span class="p">,</span> dividing <span class="o">==</span> <span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15234,8 +15234,8 @@ test_set <span class="o">=</span> <span class="kp">subset</span><span class="p">
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Feature Scaling</span>
-training_set<span class="p">[</span><span class="m">-3</span><span class="p">]</span> <span class="o">=</span> <span class="kp">scale</span><span class="p">(</span>training_set<span class="p">[</span><span class="m">-3</span><span class="p">])</span>
-test_set<span class="p">[</span><span class="m">-3</span><span class="p">]</span> <span class="o">=</span> <span class="kp">scale</span><span class="p">(</span>test_set<span class="p">[</span><span class="m">-3</span><span class="p">])</span>
+training_set<span class="p">[</span><span class="m">-3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">scale</span><span class="p">(</span>training_set<span class="p">[</span><span class="m">-3</span><span class="p">])</span>
+test_set<span class="p">[</span><span class="m">-3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">scale</span><span class="p">(</span>test_set<span class="p">[</span><span class="m">-3</span><span class="p">])</span>
 </pre></div>
 
 </div>
