@@ -1,2 +1,5 @@
 # KampalR_June
-Proposed presentation material
+Contributors:
+Mark Okello
+Joachim Gwoke
+Richard Ngamita
