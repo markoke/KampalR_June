@@ -1,5 +1,5 @@
 # KampalR_June
 Contributors:
-Mark Okello
-Joachim Gwoke
-Richard Ngamita
+Mark Okello,
+Joachim Gwoke,
+Richard Ngamita,
