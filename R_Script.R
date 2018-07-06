@@ -14,7 +14,7 @@ library(cluster) # Visualizing kmeans clusters and HC
 # LINEAR REGRESSION
 # simple linear regression 
 # Loading our dataset 
-dataset = read.csv('data/crafted_umeme-dataset.csv')
+dataset <- read.csv('data/crafted_umeme-dataset.csv')
 # Seeing what our data is like
 head(dataset,5)
 # Subsetting only the Variables(columns) for our model
@@ -23,9 +23,9 @@ slr_data <- dataset[ ,1:2]
 
 # Splitting the dataset into Training set and Test set
 set.seed(772018)
-dividing = sample.split(slr_data$SalaryAyear, SplitRatio = 0.8)
-training_set = subset(slr_data, dividing == TRUE)
-test_set = subset(slr_data, dividing == FALSE)
+dividing <- sample.split(slr_data$SalaryAyear, SplitRatio = 0.8)
+training_set <- subset(slr_data, dividing == TRUE)
+test_set <- subset(slr_data, dividing == FALSE)
 
 # Fitting the model
 regressionModel = lm(formula = SalaryAyear ~ YearsExperience,
@@ -63,14 +63,14 @@ mlr_data <- dataset[ ,3:6]
 head(mlr_data)
 
 # Factoring/encoding categorical data using integer encoding
-mlr_data$Branch = factor(mlr_data$Branch,
+mlr_data$Branch <- factor(mlr_data$Branch,
                          levels = c('Kampala', 'Mbarara', 'Soroti'),
                          labels = c(1, 2, 3))
 
 set.seed(772018)
-dividing_mlr = sample.split(mlr_data$ProfitMade, SplitRatio = 0.8)
-training_set = subset(mlr_data, dividing_mlr == TRUE)
-test_set = subset(mlr_data, dividing_mlr == FALSE)
+dividing_mlr <- sample.split(mlr_data$ProfitMade, SplitRatio = 0.8)
+training_set <- subset(mlr_data, dividing_mlr == TRUE)
+test_set <- subset(mlr_data, dividing_mlr == FALSE)
 
 # Fitting model to Training set
 regressionModel_mlr = lm(formula = ProfitMade ~ .,
@@ -140,17 +140,17 @@ ggplot() +
 airT_data <- read_excel('data/airtime_borrowing.xls')
 
 # Encoding paid as factor
-airT_data$Paid = factor(airT_data$Paid, levels = c(0, 1))
+airT_data$Paid <- factor(airT_data$Paid, levels = c(0, 1))
 
 # Splitting the dataset into the Training set and Test set
 set.seed(772018)
-dividing = sample.split(airT_data$Paid, SplitRatio = 0.8)
-training_set = subset(airT_data, dividing == TRUE)
-test_set = subset(airT_data, dividing == FALSE)
+dividing <- sample.split(airT_data$Paid, SplitRatio = 0.8)
+training_set <- subset(airT_data, dividing == TRUE)
+test_set <- subset(airT_data, dividing == FALSE)
 
 # Feature Scaling
-training_set[-3] = scale(training_set[-3])
-test_set[-3] = scale(test_set[-3])
+training_set[-3] <- scale(training_set[-3])
+test_set[-3] <- scale(test_set[-3])
 
 # Fitting the model
 lr_classifier = glm(formula = Paid ~ .,
@@ -265,7 +265,7 @@ cm
 # Importing the dataset
 creditcard_data <- read.csv('data/CC GENERAL.csv')
 head(creditcard_data, 5)
-creditcard_data = creditcard_data[c(2,3)] # 2:3
+creditcard_data <- creditcard_data[c(2,3)] # 2:3
 
 # Using the elbow method to find good number of clusters
 set.seed(772018)
